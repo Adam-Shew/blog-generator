@@ -19,25 +19,32 @@ function displayMessage(type, message) {
   messageDis.setAttribute('class', type);
 }
 
-submitButton.addEventListener('click', function(e) {
-  e.preventDefault();
-  
-  const username = document.querySelector('#username').value;
-  const blogTitle = document.querySelector('#blogTitle').value;
-  const blogContent = document.querySelector('#blogContent').value;
+function runBlog(){
+  window.location.href = 'blog.html';
+}
 
-  if (username === '') {
-    displayMessage('error', 'Username cannot be blank');
-  } else if (blogTitle === '') {
-    displayMessage('error', 'You need a title!');
-  } else if (blogContent === '') {
-    displayMessage('error', 'You need content for your blog!');
-  } else {
-    displayMessage('success', 'Registered successfully');
-    userNameStor = username;
-    userTitleStor = blogTitle;
-    userContentStor = blogContent;
-    saveUserData();
-  }
-});
 
+if(submitButton){
+  submitButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const username = document.querySelector('#username').value;
+    const blogTitle = document.querySelector('#blogTitle').value;
+    const blogContent = document.querySelector('#blogContent').value;
+
+    if (username === '') {
+      displayMessage('error', 'Username cannot be blank');
+    } else if (blogTitle === '') {
+      displayMessage('error', 'You need a title!');
+    } else if (blogContent === '') {
+      displayMessage('error', 'You need content for your blog!');
+    } else {
+      displayMessage('success', 'Registered successfully');
+      userNameStor = username;
+      userTitleStor = blogTitle;
+      userContentStor = blogContent;
+      saveUserData();
+      runBlog();
+      }
+  });
+}

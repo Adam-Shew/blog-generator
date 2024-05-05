@@ -1,0 +1,42 @@
+*{
+  background-color: rgb(242, 230, 230);
+  box-sizing: border-box;
+ 
+}
+
+.head {
+  text-align: center;
+  border: 2px solid;
+}
+
+h1 {
+  display: inline;
+}
+
+button {
+  display: inline-block;
+  position: relative;
+  background-color:#001b44;
+  color: #fff;
+  float: right;
+  text-align: center;
+  position: relative;
+}
+
+div {
+  width: 300px;
+  border: 2px solid;
+  padding: 20px;
+}
+
+h2 {
+  border-bottom: 2px solid;
+  padding-bottom: 10px;
+}
+
+h3{
+  margin-top: 20px;
+  border-top: 2px solid;
+  padding-top: 10px;
+  font-size: small;
+}
