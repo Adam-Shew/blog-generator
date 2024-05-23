@@ -4,6 +4,7 @@ const newUsername = document.createElement('h3');
 const newTitle = document.createElement('h2');
 const newContent = document.createElement('p');
 const backButton = document.querySelector('#back');
+const darkButton = document.querySelector('#darkMode');
 
 let storedUsername = localStorage.getItem('username');
 let storedTitle = localStorage.getItem('title');
@@ -26,6 +27,11 @@ function displayInfo(){
 }
 
 displayInfo()
+
+darkButton.addEventListener('click', function(e){
+  e.preventDefault();
+  document.body.classList.toggle('dark-mode');
+})
 
 backButton.addEventListener('click', function(e){
   window.location.href = 'index.html'
