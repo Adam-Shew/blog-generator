@@ -8,10 +8,11 @@ let userNameStor = localStorage.getItem('username');
 let userTitleStor = localStorage.getItem('title');
 let userContentStor = localStorage.getItem('content');
 
-function saveUserData() {
-  localStorage.setItem('username', userNameStor);
-  localStorage.setItem('title', userTitleStor);
-  localStorage.setItem('content', userContentStor);
+function saveUserData(username, title, content) {
+  const timestamp = Date.now();
+  localStorage.setItem(`username_${timestamp}`, username);
+  localStorage.setItem(`title_${timestamp}`, title);
+  localStorage.setItem(`content_${timestamp}`, content);
 }
 
 function displayMessage(type, message) {
@@ -39,12 +40,9 @@ if(submitButton){
     } else if (blogContent === '') {
       displayMessage('error', 'You need content for your blog!');
     } else {
+      saveUserData(username, blogTitle, blogContent);
       displayMessage('success', 'Registered successfully');
-      userNameStor = username;
-      userTitleStor = blogTitle;
-      userContentStor = blogContent;
-      saveUserData();
       runBlog();
-      }
+    }
   });
 }

@@ -1,32 +1,44 @@
 const body = document.body;
-const newBlog = document.createElement('div');
-const newUsername = document.createElement('h3');
-const newTitle = document.createElement('h2');
-const newContent = document.createElement('p');
 const backButton = document.querySelector('#back');
 const darkButton = document.querySelector('#darkMode');
 
-let storedUsername = localStorage.getItem('username');
-let storedTitle = localStorage.getItem('title');
-let storedContent = localStorage.getItem('content');
-
-// console.log(displayUsername);
-// console.log(displayTitle);
-// console.log(displayContent);
-
 function displayInfo(){
-  newUsername.textContent = `Created by ${storedUsername}`;
-  newTitle.textContent = storedTitle;
-  newContent.textContent = storedContent;
+  const postsContainer = document.getElementById('postsContainer');
 
-  newBlog.appendChild(newTitle);
-  newBlog.appendChild(newContent);
-  newBlog.appendChild(newUsername);
-  body.appendChild(newBlog);
+  // Iterate over localStorage keys
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
 
+    // Check if the key starts with 'username_' to identify blog entries
+    if (key.startsWith('username_')) {
+      const timestamp = key.split('_')[1]; // Extract timestamp
+      const username = localStorage.getItem(`username_${timestamp}`);
+      const title = localStorage.getItem(`title_${timestamp}`);
+      const content = localStorage.getItem(`content_${timestamp}`);
+
+      const newBlog = document.createElement('div');
+      const newUsername = document.createElement('h3');
+      const newTitle = document.createElement('h2');
+      const newContent = document.createElement('p');
+
+      newUsername.textContent = `Created by ${username}`;
+      newTitle.textContent = title;
+      newContent.textContent = content;
+
+      newBlog.classList.add('newPost');
+      newBlog.appendChild(newTitle);
+      newBlog.appendChild(newContent);
+      newBlog.appendChild(newUsername);
+
+      postsContainer.appendChild(newBlog);
+    }
+  }
 }
 
-displayInfo()
+
+const storedUsername = localStorage.getItem('username');
+const storedTitle = localStorage.getItem('title');
+const storedContent = localStorage.getItem('content');
 
 darkButton.addEventListener('click', function(e){
   e.preventDefault();
@@ -36,3 +48,6 @@ darkButton.addEventListener('click', function(e){
 backButton.addEventListener('click', function(e){
   window.location.href = 'index.html'
 })
+
+
+displayInfo(storedUsername, storedTitle, storedContent);
