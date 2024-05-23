@@ -1,7 +1,7 @@
 *{
   background-color: rgb(242, 230, 230);
   box-sizing: border-box;
- 
+
 }
 
 .head {
@@ -14,7 +14,6 @@ h1 {
 }
 
 button {
-  display: inline-block;
   position: relative;
   background-color:#001b44;
   color: #fff;
@@ -24,6 +23,7 @@ button {
 }
 
 div {
+  margin-top: 20px;
   width: 300px;
   border: 2px solid;
   padding: 20px;
@@ -39,4 +39,13 @@ h3{
   border-top: 2px solid;
   padding-top: 10px;
   font-size: small;
+}
+
+footer{
+  border: 2px solid;
+  margin-top: 20px;
+}
+
+h4{
+  text-align: center;
 }

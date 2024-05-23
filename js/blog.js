@@ -12,20 +12,11 @@ let storedContent = localStorage.getItem('content');
 // console.log(displayUsername);
 // console.log(displayTitle);
 // console.log(displayContent);
+
 function displayInfo(){
   newUsername.textContent = `Created by ${storedUsername}`;
   newTitle.textContent = storedTitle;
   newContent.textContent = storedContent;
-
-  // if(newUsername === newUsername){
-  //   newUsername = storedUsername;
-  // }
-  // if(newTitle === newTitle){
-  //   newTitle = storedTitle;
-  // }
-  // if(newContent === newContent){
-  //   newContent = storedContent;
-  // }
 
   newBlog.appendChild(newTitle);
   newBlog.appendChild(newContent);
